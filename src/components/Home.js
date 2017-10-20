@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/home.css'
 
 import InfoCard from './InfoCard'
+import EmbeddedTweet from './EmbeddedTweet'
 
 const Home = ({
   username,
@@ -27,14 +28,10 @@ const Home = ({
         </div>
       </InfoCard>
       <InfoCard message="Most loved tweet" icon="favorite">
-        <div>
-          <h1>{mostLoved && mostLoved.id}</h1>
-        </div>
+        <EmbeddedTweet tweetId={mostLoved && mostLoved.id} />
       </InfoCard>
       <InfoCard message="Most retweeted tweet" icon="sync">
-        <div>
-          <h1>{mostRetweeted && mostRetweeted.id}</h1>
-        </div>
+        <EmbeddedTweet tweetId={mostRetweeted && mostRetweeted.id} />
       </InfoCard>
     </div>
   </div>
