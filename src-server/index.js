@@ -1,13 +1,18 @@
 const express = require('express')
+const cors = require('cors')
+
 const api = require('./twitter-api')
 
 const app = express()
 const port = 8001
 
+app.use(cors())
+
 app.get('/', (req, res) => {
   const user = req.query.user
   if (user) {
-    api.tweets(user)
+    api
+      .tweets(user)
       .then(tweets => res.json(tweets))
       .catch(err => {
         console.log(err)
@@ -20,5 +25,8 @@ app.get('/', (req, res) => {
   }
 })
 
-api.init()
-  .then(() => app.listen(port, () => console.log(`Server running on port ${port}`)))
+api
+  .init()
+  .then(() =>
+    app.listen(port, () => console.log(`Server running on port ${port}`))
+  )
