@@ -28,7 +28,7 @@ export const getTweetsSuccess = tweets => ({
 })
 
 export const fetchTweets = username => {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(updateUsername(username))
     dispatch(getTweets())
     return axios({
@@ -38,7 +38,11 @@ export const fetchTweets = username => {
         user: username
       }
     })
-      .then(response => dispatch(getTweetsSuccess(response.data)))
+      .then(
+        response =>
+          getState().app.username === username &&
+          dispatch(getTweetsSuccess(response.data))
+      )
       .catch(err => dispatch(getTweetsError(err.message)))
   }
 }
