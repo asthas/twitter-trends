@@ -1,17 +1,18 @@
 import React, { PureComponent } from 'react'
 
 class EmbeddedTweet extends PureComponent {
+  emptyDiv = () => {
+    while (this.el.hasChildNodes()) {
+      this.el.removeChild(this.el.lastChild)
+    }
+  }
+
   renderTweet = () => {
     const { tweetId } = this.props
+    const { twttr } = window
     if (tweetId) {
-      console.log('Rendering tweet')
-      window.twttr.widgets.createTweet(
-        '914755038697934800' || this.props.tweetId,
-        this.el,
-        {
-          theme: 'dark'
-        }
-      )
+      this.emptyDiv()
+      twttr.ready(() => twttr.widgets.createTweet(tweetId, this.el))
     }
   }
 

@@ -28,10 +28,10 @@ const Home = ({
         </div>
       </InfoCard>
       <InfoCard message="Most loved tweet" icon="favorite">
-        <EmbeddedTweet tweetId={mostLoved && mostLoved.id} />
+        <EmbeddedTweet tweetId={mostLoved && mostLoved.id_str} />
       </InfoCard>
       <InfoCard message="Most retweeted tweet" icon="sync">
-        <EmbeddedTweet tweetId={mostRetweeted && mostRetweeted.id} />
+        <EmbeddedTweet tweetId={mostRetweeted && mostRetweeted.id_str} />
       </InfoCard>
     </div>
   </div>
