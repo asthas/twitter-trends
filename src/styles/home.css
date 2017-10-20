@@ -1,0 +1,28 @@
+.input-container {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px;
+}
+
+.username-form-control {
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  background: #fff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 100%;
+  width: 200px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 64px;
+}

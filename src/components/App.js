@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import '../styles/App.css'
+import React, { PureComponent } from 'react'
+import { Provider } from 'react-redux'
 
-import Routes from './Routes'
+import configureStore from '../store'
+import Home from './Home'
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          Twitter Trends
-        </header>
-        <Routes />
-      </div>
+      <Provider store={configureStore()}>
+        <div className="App">
+          <Home />
+        </div>
+      </Provider>
     )
   }
 }
